@@ -23,3 +23,6 @@ Coming Soon
 - USB Network Adapter
 - USB Memory Stick
 
+### NTP Server
+
+Part of the system is a network time server to ensure that desks have the correct time. By default this uses the CloudFlare time server but can be configured to use others.
