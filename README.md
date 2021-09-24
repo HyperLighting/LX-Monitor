@@ -14,7 +14,7 @@ The system is built around the Raspberry Pi 4. The Pi, along with an additional 
 
 ## Installation
 
-Coming Soon
+See the [installation document](INSTALLATION.md) for complete instructions.
 
 ## Hardware
 
