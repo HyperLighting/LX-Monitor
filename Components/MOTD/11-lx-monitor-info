@@ -1,0 +1,29 @@
+#!/bin/bash
+
+function line() {
+ echo "----------------------------------------------------------------------------------------------------"
+}
+
+function eth0Info() {
+    ifconfig eth0 | grep inet | head -1 | awk '{ print $2 }'
+}
+
+function eth1Info() {
+    ifconfig eth1 | grep inet | head -1 | awk '{ print $2 }'
+}
+
+line
+
+echo "LX Monitor"
+echo "Version: 0.1.0-Alpha"
+uname -srmo
+
+echo ""
+
+line
+
+echo ""
+
+echo "LXNet IP: `eth0Info`"
+echo "Admin IP: `eth1Info`"
+echo ""
