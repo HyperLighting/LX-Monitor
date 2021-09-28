@@ -54,9 +54,12 @@ plugins:
 #   - vendor/gems/
 #   - vendor/ruby/
 
+aux_links:
+  "LX Monitor on GitHub":
+    - "//github.com/hyperlighting/lx-monitor"
+
 # Jekyll Collections
 collections:
-  # Define a collection named "docs", its documents reside in the "_docs" directory
   install:
     permalink: "/:collection/:path/"
     output: true
