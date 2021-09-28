@@ -1,18 +1,9 @@
 version: '3'
 
 services:
-    onedrive:
-        image: driveone/onedrive:latest
-        restart: unless-stopped
-        container_name: LXM_OneDrive
-        environment:
-            - TZ=Europe/London
-        volumes:
-            - ./Volumes/Config:/onedrive/conf
-            - ./Volumes/LXShare:/onedrive/data
     ntp:
         image: cturra/ntp:latest
-        container_name: ntp
+        container_name: LXMon_TimeServ
         restart: always
         ports:
             - 123:123/udp
