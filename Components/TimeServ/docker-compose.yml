@@ -2,16 +2,17 @@ version: '3'
 
 services:
     ntp:
-        image: cturra/ntp:latest
+        image: ${TIMESERV_IMAGE}:${TIMESERV_VERSION}
         container_name: LXMon_TimeServ
         restart: ${RESTART_POLICY}
         ports:
-            - 123:123/udp
+            - ${LXNET_IP}:123:123/udp
         read_only: true
         tmpfs:
             - /etc/chrony:rw,mode=1750
             - /run/chrony:rw,mode=1750
             - /var/lib/chrony:rw,mode=1750
         environment:
-            - NTP_SERVERS=time.cloudflare.com
-            - LOG_LEVEL=0
+            - LXMON_VERSION=${LXMON_VERSION}
+            - NTP_SERVERS=${TIMESERV_SERVERS}
+            - LOG_LEVEL=${TIMESERV_LOGLEVEL}
