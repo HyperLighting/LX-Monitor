@@ -50,6 +50,9 @@ function statusMessage() {
     fi
 }
 
+# Load the Global Environment
+source Config/global.env
+
 cat << "EOF"
     __   _  __    __  ___            _ __            
    / /  | |/ /   /  |/  /___  ____  (_) /_____  _____
@@ -58,7 +61,7 @@ cat << "EOF"
 /_____/_/|_|  /_/  /_/\____/_/ /_/_/\__/\____/_/     
                                                      
 EOF
-echo "Version: 0.1-Alpha"
+echo "Version: ${LXMON_VERSION}"
 line
 emptyLine
 
