@@ -4,7 +4,7 @@ services:
     ntp:
         image: cturra/ntp:latest
         container_name: LXMon_TimeServ
-        restart: unless-stopped
+        restart: ${RESTART_POLICY}
         ports:
             - 123:123/udp
         read_only: true

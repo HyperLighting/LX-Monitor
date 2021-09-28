@@ -3,7 +3,7 @@ version: '3'
 services:
     onedrive:
         image: driveone/onedrive:latest
-        restart: unless-stopped
+        restart: ${RESTART_POLICY}
         container_name: LXMon_ExternalSync_OneDrive
         environment:
             - TZ=Europe/London
