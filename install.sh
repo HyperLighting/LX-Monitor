@@ -76,6 +76,45 @@ echo "PrintLastLog" | sudo tee -a /etc/ssh/sshd_config
 
 statusMessage MOTD true
 
+# LXMON_PATH and Commands Bin
+LXMonPath=`dirname "$(readlink -f "$0")"`
+if [-f ~/.profile ]; then
+    # Check for LX Mon Path
+    if grep -Fxq "export LXMON_PATH=\"$LXMonPath\"" ~/.profile
+    then
+        statusMessage LXMon_Path true
+    else
+        echo "export LXMON_PATH=\"$LXMonPath\"" >> ~/.profile
+        statusMessage LXMon_Path true
+    fi
+
+    # Commands
+    if grep -Fxq 'export PATH="$LXMON_PATH/Components/Commands/Bin:$PATH"' ~/.profile
+    then
+        statusMessage Commands true
+    else
+        echo 'export PATH="$LXMON_PATH/Components/Commands/Bin:$PATH"' >> ~/.profile
+        statusMessage Commands true
+    fi
+
+    # Aliases
+    if grep -Fxq 'source $LXMON_PATH/Components/Commands/.aliases' ~/.profile
+    then
+        statusMessage Aliases true
+    else
+        echo 'source $LXMON_PATH/Components/Commands/.aliases' >> ~/.profile
+        statusMessage Aliases true
+    fi
+else
+    touch ~/.profile
+    echo "export LXMON_PATH=\"$LXMonPath\"" >> ~/.profile
+    echo 'export PATH="$LXMON_PATH/Components/Commands/Bin:$PATH"' >> ~/.profile
+    echo 'source $LXMON_PATH/Components/Commands/.aliases' >> ~/.profile
+    statusMessage LXMon_Path true
+    statusMessage Commands true
+    statusMessage Aliases true
+fi
+
 # Git
 if ! isInstalled git; then
     sudo apt-get install git
