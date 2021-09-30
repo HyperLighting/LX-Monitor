@@ -57,17 +57,3 @@ plugins:
 aux_links:
   "LX Monitor on GitHub":
     - "//github.com/hyperlighting/lx-monitor"
-
-# Jekyll Collections
-collections:
-  install:
-    permalink: "/:collection/:path/"
-    output: true
-
-just_the_docs:
-  collections:
-    install:
-      # Give the collection a name
-      name: Installation
-      nav_exclude: false
-      search_exclude: false
