@@ -2,7 +2,7 @@
 layout: default
 has_children: true
 title: Installation
-nav_order: 2
+nav_order: 3
 permalink: /install
 ---
 # Installation

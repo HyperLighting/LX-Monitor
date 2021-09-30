@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Getting Started
+title: Hardware
 parent: Installation
 nav_order: 1
-permalink: /install/getting-started
+permalink: /install/hardware
 ---
 
 ## Configuring the Raspberry Pi
