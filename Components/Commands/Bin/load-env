@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Check for a location
+if [[ -z "${LXMON_PATH}" ]]; then
+    LXMON_PATH="/users/lxma/LX-Monitor"
+else
+    LXMON_PATH=${LXMON_PATH}
+fi
+
+# Check for file and source function
+function checkSource() {
+    if [-f "$1"]; then
+        source $1
+    fi
+}
+
+# Load all the main files
+checkSource $LXMON_PATH/global.env
+checkSource $LXMON_PATH/network.env
+checkSource $LXMON_PATH/images.env
+checkSource $LXMON_PATH/versions.env
+
+# Load the service specific files
+checkSource $LXMON_PATH/Components/TimeServ/config.env
