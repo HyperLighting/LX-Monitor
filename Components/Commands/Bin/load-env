@@ -9,7 +9,7 @@ fi
 
 # Check for file and source function
 function checkSource() {
-    if [-f "$1"]; then
+    if [ -f "$1" ]; then
         source $1
     fi
 }
