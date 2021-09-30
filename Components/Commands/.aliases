@@ -1,0 +1,2 @@
+# Hostname
+alias hostname="sudo hostname"
