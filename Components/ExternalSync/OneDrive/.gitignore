@@ -1,0 +1,3 @@
+# Ignore data in Volumes
+Volumes/Data/*
+!Volumes/Data/.gitkeep
