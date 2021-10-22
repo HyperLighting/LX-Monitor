@@ -72,13 +72,13 @@ sudo rm -r /etc/update-motd.d
 sudo ln -s /home/lxma/LX-Monitor/Components/MOTD/motd /etc/motd
 sudo ln -s /home/lxma/LX-Monitor/Components/MOTD/update-motd.d /etc/update-motd.d
 
-echo "PrintLastLog" | sudo tee -a /etc/ssh/sshd_config
+echo "PrintLastLog no" | sudo tee -a /etc/ssh/sshd_config
 
 statusMessage MOTD true
 
 # LXMON_PATH and Commands Bin
 LXMonPath=`dirname "$(readlink -f "$0")"`
-if [-f ~/.profile ]; then
+if [ -f ~/.profile ]; then
     # Check for LX Mon Path
     if grep -Fxq "export LXMON_PATH=\"$LXMonPath\"" ~/.profile
     then
