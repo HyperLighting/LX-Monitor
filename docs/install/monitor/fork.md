@@ -55,6 +55,19 @@ git remote set-url --push upstream DISABLED
 
 ## Fetching Updates
 
-You should be able to fetch any updates by pulling from upstream, and then solving any conflicts.
+Fetching updates from main source is simple with the following command:
+
+```
+git fetch upstream
+git rebase upstream/master
+```
+
+Alternatively, there is an update script included to automate this with the following command:
+
+```
+bash update-deployment.sh
+```
+
+This scripts needs to be run on a Linux or Mac based system. The script also supports the development branch of LX Monitor.
 
 [CreatePrivateRepo]: https://help.github.com/articles/creating-a-new-repository/ "Creating a new repository"
