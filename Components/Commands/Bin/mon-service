@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Ensure that there is a service specified
+if [ $# -eq 0 ]; then
+    exit 1
+fi
+
+# Check that the Monitor Path is set
+if [[ -z "${LXMON_PATH}" ]]; then
+    LXMON_PATH="/users/lxma/LX-Monitor"
+else
+    LXMON_PATH=${LXMON_PATH}
+fi
+
+# Load the Env Configs
+set -a
+
+# core configs
+source $LXMON_PATH/Config/global.env
+source $LXMON_PATH/Config/images.env
+source $LXMON_PATH/Config/network.env
+source $LXMON_PATH/Config/versions.env
+
+# Load the Service Config
+case "$1" in
+    "timeserv")
+        source $LXMON_PATH/Components/TimeServ/config.env
+        COMPOSE_FILE=$LXMON_PATH/Components/TimeServ/docker-compose.yml
+        ;;
+    *)
+        exit 1
+        ;;
+esac
+
+# Start or Stop
+if [ -z "$2" ] || [ "$2" = "start" ]; then
+    cat $COMPOSE_FILE | envsubst | docker-compose -f - up -d
+elif [ "$2" = "stop" ]; then
+    cat $COMPOSE_FILE | envsubst | docker-compose -f - down
+else 
+    exit 1
+fi
