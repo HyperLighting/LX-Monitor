@@ -29,6 +29,7 @@ case "$1" in
         ;;
     "lxnet-samba")
         COMPOSE_FILE=$LXMON_PATH/Components/LXNetSamba/docker-compose.yml
+        ;;
     *)
         exit 1
         ;;
