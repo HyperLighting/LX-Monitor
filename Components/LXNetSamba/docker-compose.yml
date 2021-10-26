@@ -16,6 +16,9 @@ services:
             - ${LXMON_PATH}/Components/LXNetSamba/shares.env
         environment:
             - TZ:${TIMEZONE}
+            - PUID:${LXMA_UID}
+            - GUID:${LXMA_GID}
             - NMBD="true"
+            - PERMISSIONS="true"
         volumes:
             - "${LXMON_PATH}/Shared Volumes:/Shares"
