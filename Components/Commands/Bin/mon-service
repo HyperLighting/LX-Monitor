@@ -34,9 +34,9 @@ esac
 
 # Start or Stop
 if [ -z "$2" ] || [ "$2" = "start" ]; then
-    cat $COMPOSE_FILE | envsubst | docker-compose -f - up -d
+    cat $COMPOSE_FILE | envsubst | docker compose -f - up -d
 elif [ "$2" = "stop" ]; then
-    cat $COMPOSE_FILE | envsubst | docker-compose -f - down
+    cat $COMPOSE_FILE | envsubst | docker compose -f - down
 else 
     exit 1
 fi
