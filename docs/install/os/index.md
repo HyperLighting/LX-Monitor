@@ -6,7 +6,7 @@ has_children: true
 nav_order: 2
 permalink: /install/os
 ---
-# Raspberry Pi IS
+# Raspberry Pi OS
 {: .no_toc }
 
 This section deals with installing Raspberry Pi OS, and getting the basic set up done.
