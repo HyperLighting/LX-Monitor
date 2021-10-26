@@ -18,6 +18,7 @@ This block handles the LX Network Interface, here we are using [our standard IP 
 interface eth0
 static ip_address=10.101.123.254
 static routers=10.101.1.1
+metric 300
 ```
 
 This block handles the Public Network Interface, please use the details that will work for your network (You may need to request a static IP address from your IT Department).
@@ -26,6 +27,7 @@ interface eth1
 static ip_address=192.168.1.91/24
 static routers=192.168.1.1
 static domain_name_servers=1.1.1.1 8.8.8.8 8.8.4.4
+metric 200
 ```
 
 Subnets are handled as part of the IP Address using CIDR Notation, use [this cheat sheet][CIDRCheatSheet] to work out what yours should be. This is placed at the end of the IP Address. For example:
