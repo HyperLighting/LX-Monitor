@@ -15,6 +15,7 @@ services:
             - ${LXMON_PATH}/Components/LXNetSamba/config.env
             - ${LXMON_PATH}/Components/LXNetSamba/shares.env
         environment:
+            - TZ:${TIMEZONE}
             - NMBD="true"
         volumes:
             - "${LXMON_PATH}/Shared Volumes:/Shares"
