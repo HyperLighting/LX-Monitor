@@ -7,7 +7,7 @@ fi
 
 # Check that the Monitor Path is set
 if [[ -z "${LXMON_PATH}" ]]; then
-    LXMON_PATH="/users/lxma/LX-Monitor"
+    LXMON_PATH="/home/lxma/LX-Monitor"
 else
     LXMON_PATH=${LXMON_PATH}
 fi
