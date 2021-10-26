@@ -27,6 +27,8 @@ case "$1" in
         source $LXMON_PATH/Components/TimeServ/config.env
         COMPOSE_FILE=$LXMON_PATH/Components/TimeServ/docker-compose.yml
         ;;
+    "lxnet-samba")
+        COMPOSE_FILE=$LXMON_PATH/Components/LXNetSamba/docker-compose.yml
     *)
         exit 1
         ;;
