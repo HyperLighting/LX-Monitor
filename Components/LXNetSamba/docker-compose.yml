@@ -9,8 +9,12 @@ services:
         ports:
             - ${LXNET_IP}:139:139
             - ${LXNET_IP}:445:445
+            - ${LXNET_IP}:137:137
+            - ${LXNET_IP}:138:138
         env_file:
             - ${LXMON_PATH}/Components/LXNetSamba/config.env
             - ${LXMON_PATH}/Components/LXNetSamba/shares.env
+        environment:
+            - NMBD="true"
         volumes:
             - "${LXMON_PATH}/Shared Volumes:/Shares"
