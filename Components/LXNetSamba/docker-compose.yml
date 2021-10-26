@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+    samba:
+        image: ${LXNET_SAMBA_IMAGE}:${LXNET_SAMBA_VERSION}
+        container_name: LXMon_LXNet_Samba
+        hostname: LXMon_LXNet_Samba
+        restart: ${RESTART_POLICY}
+        ports:
+            - ${LXNET_IP}:139:139
+            - ${LXNET_IP}:445:445
+        env_file:
+            - config.env
+            - shares.env
+        volumes:
+            - "${LXMON_PATH}/Shared Volumes:/Shares"
