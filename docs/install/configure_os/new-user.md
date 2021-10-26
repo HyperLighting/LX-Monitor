@@ -25,4 +25,6 @@ Finally we need to give the new account elevated privileges with the following c
 
 ```
 sudo usermod -aG sudo lxma
+sudo groupadd docker
+sudo usermod -aG docker lxma
 ```
