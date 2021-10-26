@@ -11,6 +11,6 @@ services:
             - ${LXNET_IP}:445:445
         env_file:
             - ${LXMON_PATH}/Components/LXNetSamba/config.env
-            - {LXMON_PATH}/Components/LXNetSamba/shares.env
+            - ${LXMON_PATH}/Components/LXNetSamba/shares.env
         volumes:
             - "${LXMON_PATH}/Shared Volumes:/Shares"
