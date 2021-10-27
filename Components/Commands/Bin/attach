@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# This command allows you to attach to a running container
+# using the exec command
+
+# Ensure that there is a service specified
+if [ $# -eq 0 ]; then
+    echo "No Service specified"
+    exit 1
+fi
+
+# Load the Service Config
+case "$1" in
+    "timeserv")
+        docker exec -it LXMon_TimeServ sh
+        ;;
+    "lxnet-samba")
+        docker exec -it LXMon_LXNet_Samba sh
+        ;;
+    *)
+        exit 1
+        ;;
+esac
