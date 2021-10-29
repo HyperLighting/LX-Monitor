@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# No Arguments, or help argument
+if [ $# -eq 0 ] || [ "$1" = "help" ]; then
+    echo "LXNet Samba"
+    echo "Version: 1.0.0"
+    echo ""
+    echo "help"
+fi
+
+# Start command
+if [ "$1" = "start" ]; then
+    mon-service lxnet-samba start
+fi
+
+# Attach command
+if [ "$1" = "attach" ]; then
+    attach lxnet-samba
+fi
+
+# Log Command
+if [ "$1" = "logs" ]; then
+    mon-service lxnet-samba logs
+fi
+
+# Stop Command
+if [ "$1" = "stop" ]; then
+    mon-service lxnet-samba stop
+fi
+
+# Top Command
+if [ "$1" = "top" ]; then
+    mon-service lxnet-samba top
+fi
+
+# Config Command
+if [ "$1" = "config" ]; then
+    # TODO: Add Config options
+    echo "Not yet implemented"
+fi
