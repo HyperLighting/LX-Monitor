@@ -7,18 +7,15 @@ services:
         hostname: LXMon_LXNet_Samba
         restart: ${RESTART_POLICY}
         ports:
-            - ${LXNET_IP}:139:139
-            - ${LXNET_IP}:445:445
-            - ${LXNET_IP}:137:137
-            - ${LXNET_IP}:138:138
+            - ${LXNET_IP}:137:137/udp
+            - ${LXNET_IP}:138:138/udp
+            - ${LXNET_IP}:139:139/tcp
+            - ${LXNET_IP}:445:445/tcp
         env_file:
-            - ${LXMON_PATH}/Components/LXNetSamba/config.env
+            - ${LXMON_PATH}/Components/LXNetSamba/users.env
             - ${LXMON_PATH}/Components/LXNetSamba/shares.env
+            - ${LXMON_PATH}/Components/LXNetSamba/config.env
         environment:
             - TZ:${TIMEZONE}
-            - PUID:${LXMA_UID}
-            - GUID:${LXMA_GID}
-            - NMBD="true"
-            - PERMISSIONS="true"
         volumes:
-            - "${LXMON_PATH}/Shared Volumes:/Shares"
+            - "${LXMON_PATH}/Shared Volumes:/shares"
