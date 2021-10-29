@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Check that the Monitor Path is set
+if [[ -z "${LXMON_PATH}" ]]; then
+    LXMON_PATH="/home/lxma/LX-Monitor"
+else
+    LXMON_PATH=${LXMON_PATH}
+fi
+
+# Load the Env Configs
+set -a
+
+# core configs
+source $LXMON_PATH/Config/modules.env
+
+# Start Services
+if [ ${TIMESERV_ENABLED} ]; then
+    mon-service timeserv start
+fi
+
+if [ ${LXNETSAMBA_ENABLED} ]; then
+    mon-service lxnet-samba start
+fi
