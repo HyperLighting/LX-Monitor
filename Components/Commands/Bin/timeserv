@@ -15,8 +15,7 @@ fi
 
 # Attach command
 if [ "$1" = "attach" ]; then
-    # TODO: Find a nice way to handle attaching to a container
-    echo "Not yet implemented"
+    attach timeserv
 fi
 
 # Log Command
